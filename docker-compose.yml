@@ -19,6 +19,7 @@ services:
       MAX_TICK_TIME: "-1"
       ALLOW_FLIGHT: "true"
       LEVEL_TYPE: "biomesoplenty"
+      MODS_FILE: /extras/mods.txt
       RCON_CMDS_STARTUP: |-
         /pregen start gen radius OverworldGeneration CIRCLE 0 0 200
         /pregen start gen radius NetherGeneration CIRCLE 0 0 200 minecraft:the_nether
@@ -32,3 +33,4 @@ services:
     volumes:
       # attach the relative directory 'data' to the container's /data path
       - ./data:/data
+      - ./mods.txt:/extras/mods.txt:ro
