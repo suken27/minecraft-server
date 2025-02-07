@@ -9,9 +9,6 @@ services:
       - "25565:25565"
     environment:
       EULA: "TRUE"
-      TYPE: FORGE
-      VERSION: "1.20.1"
-      FORGE_VERSION: "47.3.27"
       MEMORY: "14G"
       ENABLE_ROLLING_LOGS: "true"
       TZ: "Europe/Madrid"
@@ -19,7 +16,9 @@ services:
       MAX_TICK_TIME: "-1"
       ALLOW_FLIGHT: "true"
       LEVEL_TYPE: "biomesoplenty"
-      MODS_FILE: /extras/mods.txt
+      # This sets the type of the modpack platform (CURSEFORGE, MODRINTH, VANILLA)
+      MODPACK_PLATFORM: MODRINTH
+      MODRINTH_MODPACK: /modpacks/serverpack.mrpack
       RCON_CMDS_STARTUP: |-
         /pregen start gen radius OverworldGeneration CIRCLE 0 0 200
         /pregen start gen radius NetherGeneration CIRCLE 0 0 200 minecraft:the_nether
@@ -33,4 +32,4 @@ services:
     volumes:
       # attach the relative directory 'data' to the container's /data path
       - ./data:/data
-      - ./mods.txt:/extras/mods.txt:ro
+      - ./modpacks:/modpacks:ro
