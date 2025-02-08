@@ -12,6 +12,8 @@ services:
       MEMORY: "14G"
       ENABLE_ROLLING_LOGS: "true"
       TZ: "Europe/Madrid"
+      ICON: /extras/turing.png
+      OVERRIDE_ICON: "true"
       OVERRIDE_SERVER_PROPERTIES: "true"
       MAX_TICK_TIME: "-1"
       ALLOW_FLIGHT: "true"
@@ -33,3 +35,4 @@ services:
       # attach the relative directory 'data' to the container's /data path
       - ./data:/data
       - ./modpacks:/modpacks:ro
+      - ./extras:/extras:ro
