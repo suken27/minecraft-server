@@ -17,10 +17,14 @@ services:
       OVERRIDE_SERVER_PROPERTIES: "true"
       MAX_TICK_TIME: "-1"
       ALLOW_FLIGHT: "true"
-      LEVEL_TYPE: "biomesoplenty"
-      # This sets the type of the modpack platform (CURSEFORGE, MODRINTH, VANILLA)
-      MODPACK_PLATFORM: MODRINTH
-      MODRINTH_MODPACK: /modpacks/serverpack.mrpack
+      # This sets the type of the modpack platform (AUTO_CURSEFORGE, MODRINTH, VANILLA)
+      MODPACK_PLATFORM: AUTO_CURSEFORGE
+      CF_API_KEY: ${CF_API_KEY}
+      CF_SLUG: all-the-mods-10
+      CF_FILENAME_MATCHER: 10-4.2
+      CF_EXCLUDE_MODS: |
+        smithing-template-viewer
+      CF_FORCE_SYNCHRONIZE: true
       RCON_CMDS_STARTUP: |-
         /pregen start gen radius OverworldGeneration CIRCLE 0 0 200
         /pregen start gen radius NetherGeneration CIRCLE 0 0 200 minecraft:the_nether
@@ -34,5 +38,4 @@ services:
     volumes:
       # attach the relative directory 'data' to the container's /data path
       - ./data:/data
-      - ./modpacks:/modpacks:ro
       - ./extras:/extras:ro
