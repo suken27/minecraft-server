@@ -25,16 +25,6 @@ services:
       CF_EXCLUDE_MODS: |
         smithing-template-viewer
       CF_FORCE_SYNCHRONIZE: true
-      RCON_CMDS_STARTUP: |-
-        /pregen start gen radius OverworldGeneration CIRCLE 0 0 200
-        /pregen start gen radius NetherGeneration CIRCLE 0 0 200 minecraft:the_nether
-        /gamerule doFireTick false
-      RCON_CMDS_FIRST_CONNECT: |-
-        /pregen pause OverworldGeneration
-        /pregen pause NetherGeneration
-      RCON_CMDS_LAST_DISCONNECT: |-
-        /pregen continue OverworldGeneration
-        /pregen continue NetherGeneration
     volumes:
       # attach the relative directory 'data' to the container's /data path
       - ./data:/data
