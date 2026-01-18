@@ -9,7 +9,7 @@ services:
       - "25565:25565"
     environment:
       EULA: "TRUE"
-      MEMORY: "14G"
+      MEMORY: "12G"
       ENABLE_ROLLING_LOGS: "true"
       TZ: "Europe/Madrid"
       ICON: /extras/turing.png
@@ -21,10 +21,9 @@ services:
       MODPACK_PLATFORM: AUTO_CURSEFORGE
       CF_API_KEY: ${CF_API_KEY}
       CF_SLUG: all-the-mods-10
-      CF_FILENAME_MATCHER: 10-4.2
-      CF_EXCLUDE_MODS: |
-        smithing-template-viewer
+      CF_FILENAME_MATCHER: 10-5.3.1
       CF_FORCE_SYNCHRONIZE: true
+      CF_EXCLUDE_MODS: colorwheel,smithing-template-viewer
     volumes:
       # attach the relative directory 'data' to the container's /data path
       - ./data:/data
